@@ -176,6 +176,7 @@ let books = [
 function render_all() {
   render_content();
   renderLiked();
+  renderComments();
 }
 
 
@@ -195,8 +196,6 @@ function render_content() {
 <div class="genre">Genre: ${books[indexBooks].genre}</div>
 </div>
 <div id="comments">
-<div id="comment_name">${books[indexBooks].comments[indexBooks].name}</div>
-<div id="comment_text">${books[indexBooks].comments[indexBooks].comment}</div>
 </div>`;
   }
 
@@ -212,6 +211,27 @@ function renderLiked() {
       document.getElementById(`heart${indexBooks}`).src = './img/heart_border.png';
     }
   };
+}
+
+
+function renderComments() {
+
+  document.getElementById('comments').innerHTML = "";
+  for (let indexBooks = 0; indexBooks < books.length; indexBooks++) {
+    let comment = books[indexBooks].comments[indexBooks];
+    console.log(comment);
+
+    if (comment === "") {
+      document.getElementById('comments').innerHTML += `<div id="comment_name${indexBooks}"></div>
+      <div id="comment_text${indexBooks}"></div>`;
+    }
+else {
+    document.getElementById('comments').innerHTML += `<div id="comment_name">${books[indexBooks].comments[indexBooks].name}</div>
+    <div id="comment_text">${books[indexBooks].comments[indexBooks].comment}</div>`
+  }
+
+
+}
 }
 
 
