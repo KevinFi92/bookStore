@@ -188,7 +188,7 @@ function render_content() {
       `<div><div class="bookTitel">${books[indexBooks].name}</div>
 <div class="bookimg"></div>
 <div class="price">${books[indexBooks].price} €</div>
-<div class="likes"><div><img src="" "id="heart"  alt=""></div><div>${books[indexBooks].likes}</div></div>
+<div class="likes"><div><img src="" id="heart"  alt=""></div><div>${books[indexBooks].likes}</div></div>
 <div class="info">
 <div class="author">Autor: ${books[indexBooks].author}</div>
 <divclass="year">Erschienen: ${books[indexBooks].publishedYear}</div>
@@ -203,10 +203,10 @@ function renderLiked() {
 
   for (let indexBooks = 0; indexBooks < books.length; indexBooks++) {
     let status = books[indexBooks].liked;
-    if (status = true) {
-      document.getElementById('heart').src += "heart_full.png";
+    if (status === true) {
+      document.getElementById('heart').src += "./img/heart_full.png";
     } else {
-      document.getElementById('heart').src += 'heart_border.png';
+      document.getElementById('heart').src += './img/heart_border.png';
     }
   };
 }
