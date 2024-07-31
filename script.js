@@ -185,15 +185,18 @@ function render_content() {
   for (let indexBooks = 0; indexBooks < books.length; indexBooks++) {
     const book = books[indexBooks];
     document.getElementById('content').innerHTML +=
-      `<div><div class="bookTitel">${books[indexBooks].name}</div>
-<div class="bookimg"></div>
-<div class="price">${books[indexBooks].price} €</div>
-<div class="likes"><div><img src="" id="heart"  alt=""></div><div>${books[indexBooks].likes}</div></div>
+      `<div class="items"><div class="bookTitel">${books[indexBooks].name}</div>
+<div class="img"><img class="bookImg" src="./img/book.png" alt="book"></div>
+<div class="midsection"><div class="price">${books[indexBooks].price} €</div>
+<div class="likes"><div><img class="likeimg" onclick="likeBook(${indexBooks})" src="" id="heart${indexBooks}"  alt="heart"></div><div>${books[indexBooks].likes}</div></div></div>
 <div class="info">
 <div class="author">Autor: ${books[indexBooks].author}</div>
-<divclass="year">Erschienen: ${books[indexBooks].publishedYear}</div>
-<divclass="genre">Genre: ${books[indexBooks].genre}</div>
+<div class="year">Erschienen: ${books[indexBooks].publishedYear}</div>
+<div class="genre">Genre: ${books[indexBooks].genre}</div>
 </div>
+<div id="comments">
+<div id="comment_name">${books[indexBooks].comments[indexBooks].name}</div>
+<div id="comment_text">${books[indexBooks].comments[indexBooks].comment}</div>
 </div>`;
   }
 
@@ -204,10 +207,26 @@ function renderLiked() {
   for (let indexBooks = 0; indexBooks < books.length; indexBooks++) {
     let status = books[indexBooks].liked;
     if (status === true) {
-      document.getElementById('heart').src += "./img/heart_full.png";
+      document.getElementById(`heart${indexBooks}`).src = './img/heart_full.png';
     } else {
-      document.getElementById('heart').src += './img/heart_border.png';
+      document.getElementById(`heart${indexBooks}`).src = './img/heart_border.png';
     }
   };
 }
+
+
+function likeBook(indexBooks) {
+
+  if (books[indexBooks].liked === true) {
+    books[indexBooks].liked = false;
+    books[indexBooks].likes--;
+  } else {
+    books[indexBooks].liked = true;
+    books[indexBooks].likes++;
+  }
+  render_all();
+};
+
+
+
 

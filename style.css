@@ -1,0 +1,60 @@
+body {
+    background-color: papayawhip;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+.items {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    background-color: rgba(250, 205, 6, 0.301);
+    padding: 30px;
+    border-radius: 50px;
+}
+
+
+.bookTitel {
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+.bookImg {
+    height: 256px;
+
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+}
+
+
+.midsection {
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+
+.likes {
+    display: flex;
+}
+
+.likeimg {
+    height: 28px;
+    padding-right: 5px;
+}
+
+
+.info {
+    font-size: 24px;
+}
