@@ -178,7 +178,7 @@ function render_all() {
   render_content();
   renderLiked();
 
-  
+
 }
 
 
@@ -206,7 +206,7 @@ ${book.comments.map(comment => `<div><b>${comment.name}</b>: ${comment.comment}<
 </div>`
 
   };
-  }
+}
 
 function renderLiked() {
 
@@ -235,19 +235,26 @@ function likeBook(indexBooks) {
 };
 
 
-function addComment(indexBooks){
+function addComment(indexBooks) {
   let newComment = document.getElementById(`commentInput${indexBooks}`).value;
-document.getElementById(`comments${indexBooks}`).innerHTML += `<b>User</b> : ${newComment}`;
-saveToLocalStorage();
+  if (newComment == "") {
+    alert("bitte Kommentar eingeben");
+  }
+  else{
+  books[indexBooks].comments.push({name:"User", comment: newComment});
+  document.getElementById(`comments${indexBooks}`).innerHTML += `<b>User</b> : ${newComment}`;
+  saveToLocalStorage();
+  document.getElementById(`commentInput${indexBooks}`).value = "";
+  }
 }
 
 
-function saveToLocalStorage(){
+function saveToLocalStorage() {
   localStorage.setItem("savedBooks", JSON.stringify(books));
 }
 
 
-function loadFromLocalStorage(){
-let loadedBooks = localStorage.getItem('savedBooks');
-books = JSON.parse(loadedBooks);
+function loadFromLocalStorage() {
+  let loadedBooks = localStorage.getItem('savedBooks');
+  books = JSON.parse(loadedBooks);
 }
