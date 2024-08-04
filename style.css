@@ -14,7 +14,7 @@ body {
     background-color: rgba(250, 205, 6, 0.301);
     padding: 30px;
     border-radius: 50px;
-   
+
 }
 
 
@@ -66,4 +66,38 @@ body {
     margin-top: 25px;
     width: 350px;
     overflow: hidden;
+}
+
+@media (max-width: 500px) {
+    .bookImg {
+        height: 128px;
+    }
+
+    .bookTitel {
+        font-size: 24px;
+    }
+
+    .midsection {
+        font-size: 18px;
+    }
+
+    .info {
+        font-size: 18px;
+    }
+
+    .cmtDiv {
+        font-size: 18px;
+        margin-top: 25px;
+        width: 250px;
+        overflow: hidden;
+    }
+
+}
+
+@media (max-width: 350px) {
+
+    .cmtDiv {
+        width: 200px;
+    }
+
 }
