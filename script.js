@@ -1,4 +1,7 @@
 
+
+import { books } from "./books";
+
 function render_all() {
   loadFromLocalStorage()
   render_content();
@@ -8,7 +11,7 @@ function render_all() {
 }
 
 
-function render_content() {
+function render_content(books) {
   document.getElementById('content').innerHTML = "";
 
   for (let indexBooks = 0; indexBooks < books.length; indexBooks++) {
