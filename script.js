@@ -172,7 +172,7 @@ let books = [
       }
     ]
   }
-]
+];
 
 
 
@@ -191,7 +191,7 @@ function render_content() {
   for (let indexBooks = 0; indexBooks < books.length; indexBooks++) {
     const book = books[indexBooks];
     document.getElementById('content').innerHTML +=
-      `<div class="items"><div class="bookTitel">${books[indexBooks].name}</div>
+    `<div class="items"><div class="bookTitel">${books[indexBooks].name}</div>
 <div class="img"><img class="bookImg" src="./img/book.png" alt="book"></div>
 <div class="midsection"><div class="price">${books[indexBooks].price} €</div>
 <div class="likes"><div><img class="likeimg" onclick="likeBook(${indexBooks})" src="" id="heart${indexBooks}" alt="heart"></div><div>${books[indexBooks].likes}</div></div></div>
@@ -259,5 +259,15 @@ function saveToLocalStorage() {
 
 function loadFromLocalStorage() {
   let loadedBooks = localStorage.getItem('savedBooks');
+if (loadedBooks == null) {
+  render_content();
+}
+else{
   books = JSON.parse(loadedBooks);
 }
+}
+
+
+
+
+  
